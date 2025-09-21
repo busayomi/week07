@@ -108,7 +108,7 @@ async def create_order(order: OrderCreate, db: Session = Depends(get_db)):
     if not order.items:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Order must contain at least one item.",
+            detail="Order must contain at least one or more items.",
         )
 
     # List to store successfully deducted items in case of partial failures
